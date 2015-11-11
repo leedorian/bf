@@ -2,7 +2,6 @@
 
 module.exports = {
     options: {
-        debug: true,
         extensions: [],
         transform: [
             ['uglifyify',{global:true}]
@@ -21,7 +20,10 @@ module.exports = {
         external: [
           'jquery',
           'common:./src/script/common/*'
-        ]
+        ],
+        browserifyOptions:{
+            debug:true
+        }
     },
     app: {
         files: [
@@ -29,7 +31,7 @@ module.exports = {
               expand: true,     // Enable dynamic expansion.
               cwd: 'src/script/app',      // Src matches are relative to this path.
               src: ['**/*.js'], // Actual pattern(s) to match.
-              dest: 'dist/js/',   // Destination path prefix.
+              dest: 'dist/tmp',   // Destination path prefix.
               flatten: true,
               ext: '.app.js',   // Dest filepaths will have this extension.
               extDot: 'first'   // Extensions in filenames begin after the first dot
@@ -37,12 +39,12 @@ module.exports = {
         ],
         options:{
             watch:true,
-            keepAlive: true
+            keepAlive: true,
         }
     },
     common:{
           src:['src/script/common/**/*.js'],
-          dest:'dist/js/common.js',
+          dest:'dist/tmp/common.js',
           options: {
             alias: [
                 'common/x',
@@ -60,10 +62,12 @@ module.exports = {
         src: ['jquery'],
         dest: 'dist/js/vendor.js',
         options: {
-            debug: false,
             alias: [
                 'jquery:'
             ],
+            browserifyOptions:{
+                debug:false
+            },
             external: null // Reset this here because it's not needed
         }
     }

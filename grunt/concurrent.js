@@ -2,7 +2,7 @@
 
 module.exports = {
     watch: {
-        tasks: ['browserify:common','browserify:app'],
+        tasks: ['browserify:common','browserify:app','simple-watch:exorcise'],
         options: {
             logConcurrentOutput: true
         }

@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = {
-     build:['./dist/js']
+     build:['dist/js/*','dist/tmp/*'],
+     built:['dist/tmp']
 }

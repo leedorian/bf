@@ -7,8 +7,12 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'clean:build',
     'browserify:vendor',
-    'concurrent:watch',
-    //'browserify:app'
+    'concurrent'
   ]);
+   
+ grunt.registerTask('colony',[
+     'shell:colony',
+     'browserSync:colony'
+ ]);
 };
 
