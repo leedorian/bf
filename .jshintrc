@@ -1,0 +1,21 @@
+{
+    "globalstrict":true,
+    "camelcase" : true,
+    "asi": true,
+    "browser": true,
+    "browserify":true,
+    "eqeqeq": false,
+    "eqnull": true,
+    "es3": true,
+    "expr": true,
+    "latedef": true,
+    "laxbreak": true,
+    "nonbsp": true,
+    "strict": true,
+    "undef": true,
+    "unused": false,
+    "devel": true,
+    "globals": {
+        "$": true
+    }
+}

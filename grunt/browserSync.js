@@ -1,6 +1,6 @@
 'use strict';
 module.exports = {
-   colony: {
+    colony: {
         bsFiles: {
             src: [
               './colony/*.*'
@@ -12,9 +12,31 @@ module.exports = {
                 baseDir: [
                   './colony'
               ],
-            //directory: true
+                //directory: true
             },
             port: 7272,
+            host: '127.0.0.1',
+            reloadDelay: 2000,
+            reloadOnRestart: false,
+            browser: ['google chrome']
+
+        }
+    },
+    app: {
+        bsFiles: {
+            src: [
+              'dist/**/*.*'
+            ]
+        },
+        options: {
+            //watchTask: true,
+            server: {
+                baseDir: [
+                  'dist/'
+              ],
+                //directory: true
+            },
+            port: 7373,
             host: '127.0.0.1',
             reloadDelay: 2000,
             reloadOnRestart: false,
