@@ -1,2 +1,3 @@
+"use strict";
 var $ = require('jquery');
-var a='7';
+$('body').css('color','#f60');
