@@ -3,11 +3,12 @@
 module.exports = function () {
     var _ = require('lodash');
     var watchOptions = {
-        options:{
+        options: {
             watch: true,
             keepAlive: true
         }
     };
+    /*app browserify configs*/
     var app_conf = {
         files: [
             {
@@ -22,19 +23,20 @@ module.exports = function () {
             ],
         options: {}
     };
+    /*common js files browserify configs*/
     var common_conf = {
-            src: ['src/script/common/**/*.js'],
-            dest: 'dist/tmp/common.js',
-            options: {
-                alias: [
+        src: ['src/script/common/**/*.js'],
+        dest: 'dist/tmp/common.js',
+        options: {
+            alias: [
                     'common/x',
                     'common/z'
                 ],
-                external: [
+            external: [
                   'jquery'
                 ]
-            }
-        };
+        }
+    };
     return {
         options: {
             extensions: [],
@@ -56,23 +58,25 @@ module.exports = function () {
         ],
             external: [
           'jquery',
+          'backbone',
           'common:./src/script/common/*'
         ],
             browserifyOptions: {
                 debug: true
             }
         },
-        app: app_conf,
-        app_watch: _.merge({},app_conf,watchOptions),
-        common: common_conf,
-        common_watch: _.merge({},common_conf,watchOptions),
+        app: app_conf,//app build task
+        app_watch: _.merge({}, app_conf, watchOptions),//app watch task
+        common: common_conf,//common build task
+        common_watch: _.merge({}, common_conf, watchOptions),//common watch task
         vendor: {
             // External modules that don't need to be constantly re-compiled
-            src: ['jquery'],
+            src: ['jquery','backbone'],
             dest: 'dist/js/vendor.js',
             options: {
                 alias: [
-                'jquery:'
+                'jquery:',
+                'backbone'
             ],
                 browserifyOptions: {
                     debug: false
